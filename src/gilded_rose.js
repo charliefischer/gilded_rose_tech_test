@@ -16,7 +16,7 @@ class Shop {
       if(this.items[i].name.includes('Aged Brie')){
         this.brieUpdater(this.items[i])
       } else if (this.items[i].name.includes('Sulfuras')) {
-        this.items[i].quality
+        this.sulfurasUpdater(this.items[i])
       } else {
         this.items[i].quality -= 1
         this.items[i].sellIn -= 1
@@ -28,6 +28,10 @@ class Shop {
   brieUpdater(item) {
     item.quality += 1
     item.sellIn -= 1
+  }
+
+  sulfurasUpdater(item) {
+    return item
   }
 
 
