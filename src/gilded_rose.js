@@ -18,13 +18,15 @@ class Shop {
       } else if (this.items[i].name.includes('Sulfuras')) {
         this.#sulfurasUpdater(this.items[i])
       } else {
-        this.#otherItemsUpdater()
+        this.#otherItemsUpdater(this.items[i])
       }
       
     }
   }
   #otherItemsUpdater(item) {
-    item.quality -= 1
+    if (item.quality > 0) {
+      item.quality -= 1
+    } 
     item.sellIn -= 1
   }
 
