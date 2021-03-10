@@ -13,10 +13,12 @@ describe('Shop', () => {
 })
 
 describe('updateQuality', () => {
-  test('it updates the quality of a non special item', () => {
+  test('it updates the quality and sellIn of a non special item', () => {
     let item = new Item('pencils', 10, 10)
     let shop = new Shop(item)
     shop.updateQuality()
     expect(shop.items.quality).toEqual(9)
+    expect(shop.items.sellIn).toEqual(9)
   })
+
 })

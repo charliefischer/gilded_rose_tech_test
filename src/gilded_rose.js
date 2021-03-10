@@ -12,7 +12,9 @@ class Shop {
   }
 
   updateQuality(){
-    return this.items.quality -= 1
+    this.items.quality -= 1
+    this.items.sellIn -= 1
+    
 
     // for (let i = 0; i < this.items.length; i++) {
     //   switch(this.items[i].name) {
