@@ -56,6 +56,14 @@ describe('updateQuality', () => {
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(0)
   })
+
+  test('the quality of an item cannot be less than 0 after sellIn date', () => {
+    let item = new Item('scotch egg', 0, 1)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(0)
+  })
 })
 
 describe('brieUpdater', () => {

@@ -43,6 +43,16 @@ class Shop {
     return item
   }
 
+  #qualityDepreciator(item){
+    if (item.quality > 0 && item.sellIn >= 0) {
+      item.quality -= 1
+    } else if (item.quality > 1 && item.sellIn < 0){
+      item.quality -= 2
+    } else if (item.quality < 0 && item.sellIn < 0){
+      item.quality -= 1
+    }
+  }
+
 
 
 
