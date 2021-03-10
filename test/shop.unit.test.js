@@ -48,6 +48,14 @@ describe('updateQuality', () => {
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(0)
   })
+
+  test('after the sellIn date quality depreciates twice as fast', () => {
+    let item = new Item('corned beef', -1, 2)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(0)
+  })
 })
 
 describe('brieUpdater', () => {
