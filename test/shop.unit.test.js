@@ -38,7 +38,21 @@ describe('updateQuality', () => {
     expect(shop.items[1].quality).toEqual(7)
   })
 
+  test('it updates the quality of Aged Brie correctly', () => {
+    let item = new Item('Aged Brie', 10, 10)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(11)
+  })
 
+  test("the quality of Sulfuras doesn't depreciate", () => {
+    let item = new Item('Sulfuras', 10, 10)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(10)
+  })
 })
 
 describe('updateSellIn', () => {

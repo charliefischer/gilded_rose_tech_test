@@ -13,8 +13,14 @@ class Shop {
 
   updateQuality(){
     for (let i = 0; i < this.items.length; i++){
-      console.log(this.items[i].name)
-      this.items[i].quality -= 1
+      if(this.items[i].name.includes('Aged Brie')){
+        this.items[i].quality += 1
+      } else if (this.items[i].name.includes('Sulfuras')) {
+        this.items[i].quality
+      } else {
+        this.items[i].quality -= 1
+      }
+      
     }
   }
 

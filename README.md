@@ -58,8 +58,8 @@ Items to be added later:
 - [ ] "Conjured"
 
 ### Depreciation
-- [ ] max quality value is 50
-- [ ] "Aged Brie" value increases
+- [ ] max quality quality value is 50
+- [ ] "Aged Brie" quality value increases
 - [ ] "Sulfuras" does not depreciate
 - [ ] "Backstage passes" increase by 1 when > 10 days left : increase by 2 when < 10 days : increase by 3 < 5 days : value of 0 when < 0 days
 - [ ] "Conjured" items depreciate twice as fast as normal
