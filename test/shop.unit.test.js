@@ -58,7 +58,7 @@ describe('updateQuality', () => {
   })
 
   test('the quality of an item cannot be less than 0 after sellIn date', () => {
-    let item = new Item('scotch egg', 0, 1)
+    let item = new Item('scotch egg', -5, 1)
     goods.push(item)
     let shop = new Shop(goods)
     shop.updateQuality()
@@ -92,5 +92,22 @@ describe('sulfurasUpdater', () => {
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(10)
     expect(shop.items[0].sellIn).toEqual(10)
+  })
+})
+
+describe('backstagePassUpdater', () => {
+  test('the quality goes up by 1 if sellIn is more than 10', () => {
+    let item = new Item('Backstage Passes', 25, 20)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(21)
+  })
+  test('the quality goes up by 2 if sellIn is less than 10', () => {
+    let item = new Item('Backstage Passes', 9, 10)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(12)
   })
 })

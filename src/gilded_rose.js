@@ -17,6 +17,8 @@ class Shop {
         this.#brieUpdater(this.items[i])
       } else if (this.items[i].name.includes('Sulfuras')) {
         this.#sulfurasUpdater(this.items[i])
+      } else if (this.items[i].name.includes('Backstage Passes')) {
+        this.#backstagePassUpdater(this.items[i])
       } else {
         this.#otherItemsUpdater(this.items[i])
       }
@@ -24,11 +26,7 @@ class Shop {
   }
 
   #otherItemsUpdater(item) {
-    if (item.quality > 0 && item.sellIn >= 0) {
-      item.quality -= 1
-    } else if (item.quality > 0 && item.sellIn < 0){
-      item.quality -= 2
-    }
+    this.#qualityDepreciator(item)
     item.sellIn -= 1
   }
 
@@ -43,12 +41,21 @@ class Shop {
     return item
   }
 
+  #backstagePassUpdater(item) {
+    if (item.sellIn > 10) {
+      item.quality += 1
+    } else {
+      item.quality += 2
+    } item.sellIn -= 1
+    
+  }
+
   #qualityDepreciator(item){
     if (item.quality > 0 && item.sellIn >= 0) {
       item.quality -= 1
     } else if (item.quality > 1 && item.sellIn < 0){
       item.quality -= 2
-    } else if (item.quality < 0 && item.sellIn < 0){
+    } else if (item.quality > 0 && item.sellIn < 0){
       item.quality -= 1
     }
   }
