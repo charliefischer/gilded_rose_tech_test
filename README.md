@@ -53,6 +53,7 @@ Items already in stock:
 - [ ] "Aged Brie"
 - [ ] "Sulfuras"
 - [ ] "Backstage Passes"
+
 Items to be added later:
 - [ ] "Conjured"
 
@@ -64,3 +65,39 @@ Items to be added later:
 - [ ] "Conjured" items depreciate twice as fast as normal
 - [ ] All other items depreciate by 1 per day
 
+### Refactoring updateQuality()
+```
+First statement:
+> if item is not brie, not backstage pass, not sulfras, item quality > 0
+=> Item quality - 1
+
+Else:
+> if item quality < 50 
+=> quality + 1 
+> if item is a backstage pass, if item sellIn < 11, if quality < 50
+  => quality + 1
+  > if the sellIn < 6, if quality < 50
+  => quality + 1
+
+Second statement:
+> if item is not a sulfra
+=>  quality - 1
+
+Third statement:
+> if sellIn < 0, item is not brie, item is not backstage pass, quality > 0, item is not Sulfuras
+=> quality - 1
+
+Else:
+=> quality = 0
+
+Else:
+> if item quality < 50
+=> quality + 1
+```
+
+### Key Words
+- 'Aged Brie'
+- 'Sulfuras'
+- 'Backstage pass'
+- 'Conjured'
+- anything else should have the default of -1 quality
