@@ -138,4 +138,12 @@ describe('conjuredUpdater', () => {
     expect(shop.items[0].sellIn).toEqual(9)
     expect(shop.items[0].quality).toEqual(8)
   })
+
+  test('conjured items quality can not fall below 0', () => {
+    let item = new Item('Conjured ouijee', 10, 0)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(0)
+  })
 })
