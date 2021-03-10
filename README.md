@@ -45,7 +45,7 @@ npm run test:coverage
 ```
 
 ## My Approach
-First things first I needed to refactor the code as it features up to 5 if statements inside each other. The best way to break this down is into a series of seperate functions that each deal with a specific item. This way it should be clearer to add in the new *conjured* items category.
+First things first I needed to refactor the code using TDD as it features up to 5 if statements inside each other. The best way to break this down is into a series of seperate functions that each deal with a specific item. This way it should be clearer to add in the new *conjured* items category.
 
 ## Planning
 ### Items
