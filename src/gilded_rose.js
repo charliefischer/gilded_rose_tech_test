@@ -12,16 +12,18 @@ class Shop {
   }
 
   updateQuality(){
-    for (let i = 0; i < this.items.length; i++) {
-      switch(this.items[i].name) {
-        case 'Aged Brie':
-          console.log('You better brielieve it')
-          break;
-        case 'Backstage passes to a TAFKAL80ETC concert':
-          console.log('Hanging out with the big shots')
-          break;
-      }
-    }
+    return this.items.quality -= 1
+
+    // for (let i = 0; i < this.items.length; i++) {
+    //   switch(this.items[i].name) {
+    //     case 'Aged Brie':
+    //       return('You better brielieve it')
+    //       break;
+    //     case 'Backstage passes to a TAFKAL80ETC concert':
+    //       console.log('Hanging out with the big shots')
+    //       break;
+    //   }
+    // }
   }
 
 
