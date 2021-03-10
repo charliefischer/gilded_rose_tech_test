@@ -112,6 +112,14 @@ describe('backstagePassUpdater', () => {
     expect(shop.items[0].quality).toEqual(12)
   })
 
+  test('the quality goes up by 3 if sellIn is less than 5', () => {
+    let item = new Item('Backstage Passes', 4, 20)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(23)
+  })
+
   test('the quality drops to 0 if the sellIn is -1', () => {
     let item = new Item('Backstage Passes', 0, 50)
     goods.push(item)

@@ -45,7 +45,9 @@ class Shop {
     if (item.sellIn <= 0) {
      return item.quality = 0
     }
-    if (item.sellIn > 10) {
+    if (item.sellIn < 5) {
+      item.quality += 3
+    } else if (item.sellIn > 10) {
       item.quality += 1
     } else {
       item.quality += 2
