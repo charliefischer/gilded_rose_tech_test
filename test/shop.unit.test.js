@@ -128,3 +128,14 @@ describe('backstagePassUpdater', () => {
     expect(shop.items[0].quality).toEqual(0)
   })
 })
+
+describe('conjuredUpdater', () => {
+  test('conjured items depreciate twice as fast as normal', () => {
+    let item = new Item('Conjured ouijee', 10, 10)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].sellIn).toEqual(9)
+    expect(shop.items[0].quality).toEqual(8)
+  })
+})

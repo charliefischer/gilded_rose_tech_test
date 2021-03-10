@@ -21,6 +21,8 @@ class Shop {
           return this.#sulfurasUpdater(this.items[i]);
         case (itemCategory.includes('Backstage passes')):
           return this.#backstagePassUpdater(this.items[i]);
+        case (itemCategory.includes('Conjured')):
+          return this.#conjuredUpdater(this.items[i])
         default:
           this.#otherItemsUpdater(this.items[i])
       }
@@ -75,6 +77,11 @@ class Shop {
     } else {
       item.quality += 2
     } 
+  }
+
+  #conjuredUpdater(item) {
+    item.sellIn -= 1
+    item.quality -= 2
   }
 }
 
