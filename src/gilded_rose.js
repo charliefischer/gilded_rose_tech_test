@@ -20,7 +20,6 @@ class Shop {
       } else {
         this.#otherItemsUpdater(this.items[i])
       }
-      
     }
   }
   #otherItemsUpdater(item) {
@@ -31,7 +30,10 @@ class Shop {
   }
 
   #brieUpdater(item) {
-    item.quality += 1
+    if (item.quality < 50) {
+      item.quality += 1
+    }
+    
     item.sellIn -= 1
   }
 

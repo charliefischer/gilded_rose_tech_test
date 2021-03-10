@@ -58,6 +58,14 @@ describe('brieUpdater', () => {
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(11)
   })
+
+  test('the quality value can not exceed 50', () => {
+    let item = new Item('Aged Brie', 10, 50)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(50)
+  })
 })
 
 describe('sulfurasUpdater', () => {
