@@ -12,8 +12,12 @@ class Shop {
   }
 
   updateQuality(){
-    this.items.quality -= 1
-    this.items.sellIn -= 1
+    for (let i = 0; i < this.items.length; i++){
+      console.log(this.items[i].name)
+      this.items[i].quality -= 1
+    }
+    // this.items.quality -= 1
+    // this.items.sellIn -= 1
     
 
     // for (let i = 0; i < this.items.length; i++) {
@@ -26,6 +30,12 @@ class Shop {
     //       break;
     //   }
     // }
+  }
+
+  updateSellIn() {
+    for (let i = 0; i < this.items.length; i++){
+      this.items[i].sellIn -= 1
+    }
   }
 
 
