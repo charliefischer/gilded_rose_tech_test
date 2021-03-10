@@ -16,20 +16,6 @@ class Shop {
       console.log(this.items[i].name)
       this.items[i].quality -= 1
     }
-    // this.items.quality -= 1
-    // this.items.sellIn -= 1
-    
-
-    // for (let i = 0; i < this.items.length; i++) {
-    //   switch(this.items[i].name) {
-    //     case 'Aged Brie':
-    //       return('You better brielieve it')
-    //       break;
-    //     case 'Backstage passes to a TAFKAL80ETC concert':
-    //       console.log('Hanging out with the big shots')
-    //       break;
-    //   }
-    // }
   }
 
   updateSellIn() {

@@ -37,6 +37,8 @@ describe('updateQuality', () => {
     expect(shop.items[0].quality).toEqual(9)
     expect(shop.items[1].quality).toEqual(7)
   })
+
+
 })
 
 describe('updateSellIn', () => {
