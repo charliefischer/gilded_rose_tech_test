@@ -14,21 +14,22 @@ class Shop {
   updateQuality(){
     for (let i = 0; i < this.items.length; i++){
       if(this.items[i].name.includes('Aged Brie')){
-        this.items[i].quality += 1
+        this.brieUpdater(this.items[i])
       } else if (this.items[i].name.includes('Sulfuras')) {
         this.items[i].quality
       } else {
         this.items[i].quality -= 1
+        this.items[i].sellIn -= 1
       }
       
     }
   }
 
-  updateSellIn() {
-    for (let i = 0; i < this.items.length; i++){
-      this.items[i].sellIn -= 1
-    }
+  brieUpdater(item) {
+    item.quality += 1
+    item.sellIn -= 1
   }
+
 
 
 
