@@ -111,3 +111,4 @@ Else:
 
 ## Unhappy paths
 - wrong capitalization
+- do the items have a string and 2 integers

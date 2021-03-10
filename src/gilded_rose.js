@@ -16,15 +16,17 @@ class Shop {
       let itemCategory = this.items[i].name
       switch(true) {
         case (itemCategory.includes('Aged Brie')):
-          return this.#brieUpdater(this.items[i]);
+          let brie = new AgedBrie(this.items[i])
+          return brie.brieUpdater();
         case (itemCategory.includes('Sulfuras')):
           return this.#sulfurasUpdater(this.items[i]);
         case (itemCategory.includes('Backstage passes')):
-          return this.#backstagePassUpdater(this.items[i]);
+          let bp = new BackstagePass(this.items[i])
+          return bp.backstagePassUpdater();
         case (itemCategory.includes('Conjured')):
-          return this.#conjuredUpdater(this.items[i])
+          return this.#conjuredUpdater(this.items[i]);
         default:
-          this.#otherItemsUpdater(this.items[i])
+          this.#otherItemsUpdater(this.items[i]);
       }
     }
     return this.items
@@ -35,25 +37,18 @@ class Shop {
     this.#qualityDepreciator(item)
   }
 
-  #brieUpdater(item) {
-    item.sellIn -= 1
-    if (item.quality < 50) {
-      item.quality += 1
-    }
-  }
-
   #sulfurasUpdater(item) {
     return item
   }
 
-  #backstagePassUpdater(item) {
-    item.sellIn -= 1
-    if (item.sellIn >= 0) {
-      this.#backstagePassStillValid(item)
-    } else {
-      this.#backstagePassExpired(item)
-    }
-  }
+  // #backstagePassUpdater(item) {
+  //   item.sellIn -= 1
+  //   if (item.sellIn >= 0) {
+  //     this.#backstagePassStillValid(item)
+  //   } else {
+  //     this.#backstagePassExpired(item)
+  //   }
+  // }
 
   #qualityDepreciator(item){
     if (item.quality > 0 && item.sellIn >= 0) {
@@ -65,23 +60,65 @@ class Shop {
     }
   }
 
-  #backstagePassExpired(item) {
-      return item.quality = 0
-  }
+  // #backstagePassExpired(item) {
+  //     return item.quality = 0
+  // }
 
-  #backstagePassStillValid(item) {
-    if (item.sellIn < 5) {
-      item.quality += 3
-    } else if (item.sellIn > 10) {
-      item.quality += 1
-    } else {
-      item.quality += 2
-    } 
-  }
+  // #backstagePassStillValid(item) {
+  //   if (item.sellIn < 5) {
+  //     item.quality += 3
+  //   } else if (item.sellIn > 10) {
+  //     item.quality += 1
+  //   } else {
+  //     item.quality += 2
+  //   } 
+  // }
 
   #conjuredUpdater(item) {
     item.sellIn -= 1
     item.quality -= 2
+  }
+}
+
+class AgedBrie {
+  constructor(item) {
+    this.item = item
+  }
+
+  brieUpdater() {
+    this.item.sellIn -= 1
+    if (this.item.quality < 50) {
+      this.item.quality += 1
+    }
+  }
+}
+
+class BackstagePass {
+  constructor(item) {
+    this.item = item 
+  }
+
+  backstagePassUpdater() {
+    this.item.sellIn -= 1
+    if (this.item.sellIn >= 0) {
+      this.#backstagePassStillValid()
+    } else {
+      this.#backstagePassExpired()
+    }
+  }
+
+  #backstagePassExpired() {
+    return this.item.quality = 0
+  }
+
+  #backstagePassStillValid() {
+    if (this.item.sellIn < 5) {
+      this.item.quality += 3
+    } else if (this.item.sellIn < 10) {
+      this.item.quality += 2
+    } else {
+      this.item.quality += 1
+    } 
   }
 }
 
