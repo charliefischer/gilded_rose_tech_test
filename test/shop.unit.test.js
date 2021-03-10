@@ -146,4 +146,12 @@ describe('conjuredUpdater', () => {
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(0)
   })
+
+  test('conjured items depreciate twice as fast as normal even after sellIn is less than 0', () => {
+    let item = new Item('Conjured ouijee', 0, 4)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(0)
+  })
 })
