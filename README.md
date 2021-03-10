@@ -47,6 +47,8 @@ npm run test:coverage
 ## My Approach
 First things first I needed to refactor the code using TDD as it features up to 5 if statements inside each other. The best way to break this down is into a series of seperate functions that each deal with a specific item. This way it should be clearer to add in the new *conjured* items category.
 
+Once I got my code up and running with the items (excluding conjured) I needed to further refactor as I wanted it to be as easy as possible to add a new category. So far the updateQuality function has a little logic as possible and uses a series of private functions to execute the altering of quality and sellIn values. But to determine what function runs that is in an if statement that could be made more readable. 
+
 ## Planning
 ### Items
 Items already in stock:
@@ -105,3 +107,7 @@ Else:
 ### Classes
 - Item. This should contain the details of a singular item (the name, the sellIn days, and the quality value)
 - Shop. This should contain the array of items that are held in the shop. As well as currently updates the items to the new price at the end of the day
+
+
+## Unhappy paths
+- wrong capitalization

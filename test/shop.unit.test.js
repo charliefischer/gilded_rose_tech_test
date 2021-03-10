@@ -97,7 +97,7 @@ describe('sulfurasUpdater', () => {
 
 describe('backstagePassUpdater', () => {
   test('the quality goes up by 1 if sellIn is more than 10', () => {
-    let item = new Item('Backstage Passes', 25, 20)
+    let item = new Item('Backstage passes', 25, 20)
     goods.push(item)
     let shop = new Shop(goods)
     shop.updateQuality()
@@ -105,7 +105,7 @@ describe('backstagePassUpdater', () => {
   })
 
   test('the quality goes up by 2 if sellIn is less than 10', () => {
-    let item = new Item('Backstage Passes', 9, 10)
+    let item = new Item('Backstage passes', 9, 10)
     goods.push(item)
     let shop = new Shop(goods)
     shop.updateQuality()
@@ -113,7 +113,7 @@ describe('backstagePassUpdater', () => {
   })
 
   test('the quality goes up by 3 if sellIn is less than 5', () => {
-    let item = new Item('Backstage Passes', 4, 20)
+    let item = new Item('Backstage passes', 4, 20)
     goods.push(item)
     let shop = new Shop(goods)
     shop.updateQuality()
@@ -121,7 +121,7 @@ describe('backstagePassUpdater', () => {
   })
 
   test('the quality drops to 0 if the sellIn is -1', () => {
-    let item = new Item('Backstage Passes', 0, 50)
+    let item = new Item('Backstage passes', 0, 50)
     goods.push(item)
     let shop = new Shop(goods)
     shop.updateQuality()
