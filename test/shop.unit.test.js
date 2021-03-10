@@ -41,6 +41,16 @@ describe('updateQuality', () => {
     expect(shop.items[1].sellIn).toEqual(7)
   })
 
+  test('the quality of an item cannot be less than 0', () => {
+    let item = new Item('sausages', 2, 0)
+    goods.push(item)
+    let shop = new Shop(goods)
+    shop.updateQuality()
+    expect(shop.items[0].quality).toEqual(0)
+  })
+})
+
+describe('brieUpdater', () => {
   test('it updates the quality of Aged Brie correctly', () => {
     let item = new Item('Aged Brie', 10, 10)
     goods.push(item)
@@ -48,12 +58,15 @@ describe('updateQuality', () => {
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(11)
   })
+})
 
-  test("the quality of Sulfuras doesn't depreciate", () => {
+describe('sulfurasUpdater', () => {
+  test("the quality and sellIn of Sulfuras doesn't depreciate", () => {
     let item = new Item('Sulfuras', 10, 10)
     goods.push(item)
     let shop = new Shop(goods)
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(10)
+    expect(shop.items[0].sellIn).toEqual(10)
   })
 })
