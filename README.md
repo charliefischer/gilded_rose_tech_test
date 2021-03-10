@@ -50,17 +50,17 @@ First things first I needed to refactor the code as it features up to 5 if state
 ## Planning
 ### Items
 Items already in stock:
-[] "Aged Brie"
-[] "Sulfuras"
-[] "Backstage Passes"
+- [ ] "Aged Brie"
+- [ ] "Sulfuras"
+- [ ] "Backstage Passes"
 Items to be added later:
-[] "Conjured"
+- [ ] "Conjured"
 
 ### Depreciation
-[] max quality value is 50
-[] "Aged Brie" value increases
-[] "Sulfuras" does not depreciate
-[] "Backstage passes" increase by 1 when > 10 days left : increase by 2 when < 10 days : increase by 3 < 5 days : value of 0 when < 0 days
-[] "Conjured" items depreciate twice as fast as normal items
-[] All other items depreciate by 1 per day
+- [ ] max quality value is 50
+- [ ] "Aged Brie" value increases
+- [ ] "Sulfuras" does not depreciate
+- [ ] "Backstage passes" increase by 1 when > 10 days left : increase by 2 when < 10 days : increase by 3 < 5 days : value of 0 when < 0 days
+- [ ] "Conjured" items depreciate twice as fast as normal
+- [ ] All other items depreciate by 1 per day
 
