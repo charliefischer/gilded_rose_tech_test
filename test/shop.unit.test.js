@@ -48,14 +48,6 @@ describe('updateQuality', () => {
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(0)
   })
-
-  test('the sellIn of an item cannot be less than 0', () => {
-    let item = new Item('cornflakes', 0, 40)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].sellIn).toEqual(0)
-  })
 })
 
 describe('brieUpdater', () => {
@@ -73,14 +65,6 @@ describe('brieUpdater', () => {
     let shop = new Shop(goods)
     shop.updateQuality()
     expect(shop.items[0].quality).toEqual(50)
-  })
-
-  test('the sellIn of Aged Brie cannot be less than 0', () => {
-    let item = new Item('Aged Brie', 0, 40)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].sellIn).toEqual(0)
   })
 })
 
