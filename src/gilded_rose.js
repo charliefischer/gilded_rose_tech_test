@@ -42,12 +42,15 @@ class Shop {
   }
 
   #backstagePassUpdater(item) {
+    if (item.sellIn <= 0) {
+     return item.quality = 0
+    }
     if (item.sellIn > 10) {
       item.quality += 1
     } else {
       item.quality += 2
-    } item.sellIn -= 1
-    
+    } 
+    item.sellIn -= 1
   }
 
   #qualityDepreciator(item){
