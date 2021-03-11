@@ -24,7 +24,7 @@ class Shop {
           let bp = new BackstagePass(this.items[i])
           return bp.backstagePassUpdater();
         case (itemCategory.includes('Conjured')):
-          return this.#conjuredUpdater(this.items[i]);
+          return new Conjured(this.items[i])
         default:
           this.#otherItemsUpdater(this.items[i]);
       }
@@ -45,17 +45,6 @@ class Shop {
     } else if (item.quality > 0 && item.sellIn < 0){
       item.quality -= 1
     }
-  }
-
-  #conjuredUpdater(item) {
-    item.sellIn -= 1
-    item.quality -= 2
-    if(item.sellIn < 0) {
-      item.quality -= 2
-    }
-    if(item.quality <= 0) {
-      item.quality = 0
-    } 
   }
 }
 
@@ -105,6 +94,23 @@ class BackstagePass {
 class Sulfuras {
   constructor(item){
     return item
+  }
+}
+
+class Conjured {
+  constructor(item){
+    this.item = item
+    this.#conjuredUpdater()
+  }
+  #conjuredUpdater() {
+    this.item.sellIn -= 1
+    this.item.quality -= 2
+    if(this.item.sellIn < 0) {
+      this.item.quality -= 2
+    }
+    if(this.item.quality <= 0) {
+      this.item.quality = 0
+    } 
   }
 }
 
