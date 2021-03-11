@@ -16,8 +16,7 @@ class Shop {
       let itemCategory = this.items[i].name
       switch(true) {
         case (itemCategory.includes('Aged Brie')):
-          let brie = new AgedBrie(this.items[i])
-          return brie.brieUpdater();
+          return new AgedBrie(this.items[i])
         case (itemCategory.includes('Sulfuras')):
           return new Sulfuras(this.items[i])
         case (itemCategory.includes('Backstage passes')):
@@ -51,6 +50,7 @@ class Shop {
 class AgedBrie {
   constructor(item) {
     this.item = item
+    this.brieUpdater()
   }
 
   brieUpdater() {
@@ -116,5 +116,6 @@ class Conjured {
 
 module.exports = {
   Item,
-  Shop
+  Shop,
+  AgedBrie
 }
