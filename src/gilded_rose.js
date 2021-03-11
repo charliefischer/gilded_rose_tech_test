@@ -19,7 +19,7 @@ class Shop {
           let brie = new AgedBrie(this.items[i])
           return brie.brieUpdater();
         case (itemCategory.includes('Sulfuras')):
-          return this.#sulfurasUpdater(this.items[i]);
+          return new Sulfuras(this.items[i])
         case (itemCategory.includes('Backstage passes')):
           let bp = new BackstagePass(this.items[i])
           return bp.backstagePassUpdater();
@@ -35,10 +35,6 @@ class Shop {
   #otherItemsUpdater(item) {
     item.sellIn -= 1
     this.#qualityDepreciator(item)
-  }
-
-  #sulfurasUpdater(item) {
-    return item
   }
 
   #qualityDepreciator(item){
@@ -60,7 +56,6 @@ class Shop {
     if(item.quality <= 0) {
       item.quality = 0
     } 
-    
   }
 }
 
@@ -103,6 +98,13 @@ class BackstagePass {
     } else {
       this.item.quality += 1
     } 
+  }
+
+}
+
+class Sulfuras {
+  constructor(item){
+    return item
   }
 }
 
