@@ -66,16 +66,7 @@ describe('updateQuality', () => {
   })
 })
 
-describe('sulfurasUpdater', () => {
-  test("the quality and sellIn of Sulfuras doesn't depreciate", () => {
-    let item = new Item('Sulfuras', 10, 10)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].quality).toEqual(10)
-    expect(shop.items[0].sellIn).toEqual(10)
-  })
-})
+
 
 describe('backstagePassUpdater', () => {
   test('the quality goes up by 1 if sellIn is more than 10', () => {

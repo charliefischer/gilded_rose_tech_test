@@ -1,10 +1,10 @@
-class Item {
-  constructor(name, sellIn, quality){
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
-}
+// class Item {
+//   constructor(name, sellIn, quality){
+//     this.name = name;
+//     this.sellIn = sellIn;
+//     this.quality = quality;
+//   }
+// }
 
 class Shop {
   constructor(items=[]){
@@ -47,19 +47,7 @@ class Shop {
   }
 }
 
-class AgedBrie {
-  constructor(item) {
-    this.item = item
-    this.brieUpdater()
-  }
 
-  brieUpdater() {
-    this.item.sellIn -= 1
-    if (this.item.quality < 50) {
-      this.item.quality += 1
-    }
-  }
-}
 
 class BackstagePass {
   constructor(item) {
@@ -97,26 +85,25 @@ class Sulfuras {
   }
 }
 
-class Conjured {
-  constructor(item){
-    this.item = item
-    this.#conjuredUpdater()
-  }
-  #conjuredUpdater() {
-    this.item.sellIn -= 1
-    this.item.quality -= 2
-    if(this.item.sellIn < 0) {
-      this.item.quality -= 2
-    }
-    if(this.item.quality <= 0) {
-      this.item.quality = 0
-    } 
-  }
-}
+// class Conjured {
+//   constructor(item){
+//     this.item = item
+//     this.#conjuredUpdater()
+//   }
+//   #conjuredUpdater() {
+//     this.item.sellIn -= 1
+//     this.item.quality -= 2
+//     if(this.item.sellIn < 0) {
+//       this.item.quality -= 2
+//     }
+//     if(this.item.quality <= 0) {
+//       this.item.quality = 0
+//     } 
+//   }
+// }
 
 module.exports = {
-  Item,
   Shop,
-  AgedBrie,
-  Conjured
+
+  Sulfuras
 }
