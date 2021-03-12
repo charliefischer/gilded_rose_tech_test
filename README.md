@@ -33,7 +33,7 @@ $ node test/texttest_fixture.js (number of days you'd like to simulate)
 ```
 
 You should see the app prints out the example stock with the updated values for each day
-<img src-'images/Gilded_Rose.png'>
+<img src='images/Gilded_Rose.png'>
 
 ## Running tests
 
