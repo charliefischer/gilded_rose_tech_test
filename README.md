@@ -26,7 +26,7 @@ npm install
 
 ## Running tests
 
-To run all tests
+To run all tests with coverage built in
 
 ```sh
 npm test
@@ -38,11 +38,8 @@ To run all tests in watch mode
 npm run test:watch
 ```
 
-To generate test coverage report
-
-```sh
-npm run test:coverage
-```
+Running npm test you should see 100% code coverage and 18 out of 18 tests passing
+<img src='./images/Gilded_Rose_Test.png'>
 
 ## My Approach
 First things first I needed to refactor the code using TDD as it features up to 5 if statements inside each other. The best way to break this down is into a series of seperate functions that each deal with a specific item. This way it should be clearer to add in the new *conjured* items category.
