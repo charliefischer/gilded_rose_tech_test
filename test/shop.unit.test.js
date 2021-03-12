@@ -66,24 +66,6 @@ describe('updateQuality', () => {
   })
 })
 
-describe('brieUpdater', () => {
-  test('it updates the quality of Aged Brie correctly', () => {
-    let item = new Item('Aged Brie', 10, 10)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].quality).toEqual(11)
-  })
-
-  test('the quality value can not exceed 50', () => {
-    let item = new Item('Aged Brie', 10, 50)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].quality).toEqual(50)
-  })
-})
-
 describe('sulfurasUpdater', () => {
   test("the quality and sellIn of Sulfuras doesn't depreciate", () => {
     let item = new Item('Sulfuras', 10, 10)
@@ -129,29 +111,3 @@ describe('backstagePassUpdater', () => {
   })
 })
 
-describe('conjuredUpdater', () => {
-  test('conjured items depreciate twice as fast as normal', () => {
-    let item = new Item('Conjured ouijee', 10, 10)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].sellIn).toEqual(9)
-    expect(shop.items[0].quality).toEqual(8)
-  })
-
-  test('conjured items quality can not fall below 0', () => {
-    let item = new Item('Conjured ouijee', 10, 0)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].quality).toEqual(0)
-  })
-
-  test('conjured items depreciate twice as fast as normal even after sellIn is less than 0', () => {
-    let item = new Item('Conjured ouijee', 0, 4)
-    goods.push(item)
-    let shop = new Shop(goods)
-    shop.updateQuality()
-    expect(shop.items[0].quality).toEqual(0)
-  })
-})

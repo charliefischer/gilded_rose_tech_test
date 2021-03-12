@@ -117,5 +117,6 @@ class Conjured {
 module.exports = {
   Item,
   Shop,
-  AgedBrie
+  AgedBrie,
+  Conjured
 }
