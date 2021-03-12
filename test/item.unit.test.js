@@ -1,4 +1,4 @@
-const { Item } = require("../src/gilded_rose");
+const Item = require("../src/item");
 
 test('Item creates a new item object', () => {
   let item = new Item('Parsnips', 10, 30)

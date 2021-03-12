@@ -1,21 +1,11 @@
-const {
-  Sulfuras
-} = require('../src/gilded_rose')
+const Sulfuras = require('../src/sulfuras')
 
-describe('sulfurasUpdater', () => {
-  // test("the quality and sellIn of Sulfuras doesn't depreciate", () => {
-  //   const mockItem = jest.fn()
-  //   mockItem.name = 'Sulfuras'
-  //   mockItem.
+describe('Sulfuras', () => {
+  test("the quality and sellIn of Sulfuras doesn't depreciate", () => {
+    let sulf = new Sulfuras('Sulfuras', 10, 10)
+    sulf.updateQuality()
 
-
-
-
-  //   let item = new Item('Sulfuras', 10, 10)
-  //   goods.push(item)
-  //   let shop = new Shop(goods)
-  //   shop.updateQuality()
-  //   expect(shop.items[0].quality).toEqual(10)
-  //   expect(shop.items[0].sellIn).toEqual(10)
-  // })
+    expect(sulf.quality).toEqual(10)
+    expect(sulf.sellIn).toEqual(10)
+  })
 })
