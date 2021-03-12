@@ -24,6 +24,17 @@ Install dependencies
 npm install
 ```
 
+## Running the App
+To see the app functioning:
+```
+Clone this repo.
+
+$ node test/texttest_fixture.js (number of days you'd like to simulate)
+```
+
+You should see the app prints out the example stock with the updated values for each day
+<img src-'images/Gilded_Rose.png'>
+
 ## Running tests
 
 To run all tests with coverage built in
@@ -65,6 +76,7 @@ Items to be added later:
 - [ ] All other items depreciate by 1 per day
 
 ### Refactoring updateQuality()
+update Quality was initially a giant if statement so I wanted to break it down to see was being returned at each step.
 ```
 First statement:
 > if item is not brie, not backstage pass, not sulfras, item quality > 0
@@ -101,6 +113,21 @@ Else:
 - 'Conjured'
 - anything else should have the default of -1 quality
 
+### Desired Output
+-------- day 2 --------
+name, sellIn, quality
++5 Dexterity Vest, 8, 18
+Aged Brie, 0, 2
+
 ### Classes
 - Item. This should contain the details of a singular item (the name, the sellIn days, and the quality value)
 - Shop. This should contain the array of items that are held in the shop. As well as currently updates the items to the new price at the end of the day
+- Each special item should have it's own class and be an **extension of Item** so it can inherit the constructor values but have a different updateQuality values for each. 
+
+## Code Layout
+Initially I wanted to touch Item as little as possible so I created classes that just updated the quality of whatever the Item was however this felt quite inefficient and ended up with lots of code being repeated and poor readability. To overcome this I redesigned the way data was inputted by creating classes for each special item that inherited the constructor from Item but gave them all an updateQuality function. This meant that I could run the updateQuality() once and it would update every single class instance. This meant the code was DRY and gave each class a single responsibility. 
+
+## What could be improved
+Next steps:
+- the user has to input with the class name for each item. I wonder if you could input the data for Item and it could then auto be passed into the correct class to make the use of the app easier on the users end.
+- the print statement is quite hard to read so a formatted table would be a good thing to add. 
