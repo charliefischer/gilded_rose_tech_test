@@ -107,8 +107,3 @@ Else:
 ### Classes
 - Item. This should contain the details of a singular item (the name, the sellIn days, and the quality value)
 - Shop. This should contain the array of items that are held in the shop. As well as currently updates the items to the new price at the end of the day
-
-
-## Unhappy paths
-- wrong capitalization
-- do the items have a string and 2 integers
